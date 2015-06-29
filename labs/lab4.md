@@ -18,26 +18,7 @@ library(spatstat)
 
 ### Exercise 1
 
-The command `rThomas` generates simulated realisations of
-the Thomas model (‘modified Thomas cluster process’).
-
-1.  Read the help file.
-
-2.  Type `plot(rThomas(10, 0.05, 8))` a few times, and
-    interpret the results.
-
-3.  Experiment with the arguments of `rThomas` to obtain
-    point patterns that
-    1.  consist of a few, well-separated, very tight clusters of
-        points;
-    2.  look similar to realisations of a uniform Poisson process.
-
-
-### Exercise 2
-
-1.  Read the help file for `kppm`.
-
-2.  Fit the Thomas model to the `redwood` data by the
+1.  Fit the Thomas model to the `redwood` data by the
     method of minimum contrast:
     ```{r}
     fit <- kppm(redwood ~ 1, clusters="Thomas")
@@ -45,34 +26,26 @@ the Thomas model (‘modified Thomas cluster process’).
     plot(fit)
     ```
 
-3.  Read off the parameters of the fitted model, and generate a
+2.  Read off the parameters of the fitted model, and generate a
     simulated realisation of the fitted model using `rThomas`.
 
-4.  Type `plot(simulate(fit))` to generate a simulated realisation
+3.  Type `plot(simulate(fit))` to generate a simulated realisation
     of the fitted model automatically.
 
-5.  Try the command
-    ```{r}
-    fit2 <- kppm(redwood ~ 1, clusters="Thomas", startpar=c(kappa=10, scale=0.1))
-    ```
-    and briefly explore the fitting algorithm’s sensitivity to the
-    initial guesses at the parameter values `kappa` and `scale`.
-
-6.  Generate and plot several simulated realisations of the fitted
+4.  Generate and plot several simulated realisations of the fitted
     model, to assess whether it is plausible.
 
-7.  Extract and plot the fitted pair correlation function by
+5.  Extract and plot the fitted pair correlation function by
     ```{r}
     pcffit <- pcfmodel(fit)
     plot(pcffit, xlim = c(0, 0.3))
     ```
 
-8.  Type `plot(envelope(fit, Lest, nsim=39))` to generate simulation
+6.  Type `plot(envelope(fit, Lest, nsim=39))` to generate simulation
     envelopes of the $L$ function from this fitted model. Do they
     suggest the model is plausible?
 
-
-### Exercise 3
+### Exercise 2
 
 1.  Fit a Matern cluster process to the `redwood` data.
 
@@ -80,7 +53,7 @@ the Thomas model (‘modified Thomas cluster process’).
 
 3.  Compare with the covariance matrix obtained when fitting a homogeneous Poisson model.
 
-### Exercise 4
+### Exercise 3
 
 In this exercise we fit a Strauss point process model to
 the `swedishpines` data.
@@ -101,9 +74,19 @@ the `swedishpines` data.
     4.  Plot the fitted pairwise interaction function using
         `plot(fitin(fit))`.
 
+### Exercise 4
+
+For the Strauss model fitted in Exercise 3, 
+
+1.  Generate and plot a simulated realisation of the fitted model
+    using `simulate`.
+
+2.  Plot the $L$-function of the data along with the global
+    simulation envelopes from 19 realisations of the fitted model.
+
 ### Exercise 5
 
-In Exercise 4 we guesstimated the Strauss interaction distance 
+In Exercise 3 we guesstimated the Strauss interaction distance 
 parameter. Alternatively this parameter could be estimated by 
 profile pseudolikelihood.
 
@@ -143,45 +126,4 @@ profile pseudolikelihood.
     bestfit <- as.ppm(fitp)
     ```
 
-### Exercise 6
 
-For the Strauss model fitted in Exercise 4,
-
-1.  Generate and plot a simulated realisation of the fitted model
-    using `simulate`.
-
-2.  Plot the $L$-function of the data along with the global
-    simulation envelopes from 19 realisations of the fitted model.
-
-
-### Exercise 7
-
-1.  Read the help file for `Geyer`.
-
-2.  Fit a stationary Geyer saturation process to `swedishpines`, with the 
-    same interaction distance as for the Strauss model computed in Question 2,
-    and trying different values of the saturation parameter `sat = 1, 2, 3` say.
-
-3.  Fit the same model with the addition of a log-quadratic trend.
-
-4.  Plot the fitted trend and conditional intensity.
-
-### Exercise 8
-
-Modify Exercise 4 by using the Huang-Ogata approximate
-maximum likelihood algorithm (`method="ho"`) instead of maximum
-pseudolikelihood (the default, `method="mpl"`).
-
-### Exercise 9
-
-Repeat Exercise 5 for the inhomogeneous Strauss process with
-log-quadratic trend. The corresponding call to `profilepl` is
-```{r}
-fitp <- profilepl(D, Strauss, swedishpines ~ polynom(x,y,2))
-```
-    
-### Exercise 10
-
-Repeat Exercise 6 for the inhomogeneous Strauss process with
-log-quadratic trend, using the inhomogeneous $L$-function `Linhom`
-in place of the usual $L$-function.

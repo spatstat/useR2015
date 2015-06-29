@@ -76,29 +76,6 @@ and plot the point pattern (use `owin` or `square` to define the study region).
 
 ### Exercise 4
 
-The file `anthills.txt` is available in the Data directory on 
-[GitHub](https://github.com/spatstat/AAU2015) and downloadable by 
-[this direct link](https://raw.githubusercontent.com/spatstat/AAU2015/master/Data/anthills.txt) (right click and save).
-
-It records the locations of anthills recorded in a
-1200x1500 metre study region in northern Australia.
-Coordinates are given in metres, along with a letter code recording
-the ecological ‘status’ of each anthill (in this exercise we will ignore this letter code).
-
-1.  read the data into `R` as a data frame, using the `R` function
-    `read.table`. (Since the input file has a header line, you
-    will need to use the argument `header=TRUE` when you call
-    `read.table`.)
-
-2.  check the data for any peculiarities.
-
-3.  create a point pattern `hills` containing these data.
-    Ensure that the unit of length is given its correct name.
-
-4.  plot the data.
-
-### Exercise 4
-
 The dataset `japanesepines` contains the locations of
 Japanese Black Pine trees in a study region.
 
@@ -148,18 +125,3 @@ Japanese Pines, continued:
     and find the documentation for the arguments `theta`,
     `phi` and `shade`.
 
-### Exercise 6
-
-More Japanese Pines:
-
-1.  Compute a kernel estimate of the intensity for the Japanese
-    Pines data using a Gaussian kernel with standard deviation
-    $\sigma=0.15$.
-
-2.  Find the maximum and minimum values of the intensity estimate
-    over the study region. (Hint: Use `summary` or `range`)
-
-3.  The kernel estimate of intensity is defined so that its integral
-    over the entire study region is equal to the number of points in
-    the data pattern, ignoring edge effects. Check whether this is
-    approximately true in this example. (Hint: use `integral`)

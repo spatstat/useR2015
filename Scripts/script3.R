@@ -27,13 +27,6 @@ plot(copD)
 plot(copL, add=TRUE, col="white")
 #' distance to nearest fault
 
-#' [divide range of covariate into bands]
-facD <- cut(copD, breaks=5)
-tesD <- tess(image=facD)
-copQ <- quadratcount(copP, tess=tesD)
-copQ
-intensity(copQ)
-
 #' 
 rh <- rhohat(copP, copD)
 plot(rh)

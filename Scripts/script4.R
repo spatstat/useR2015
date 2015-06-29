@@ -25,13 +25,6 @@ Y <- rThomas(50, 0.03, 10)
 plot(Y)
 kppm(Y ~ 1, "Thomas")
 
-set.seed(1985)
-U <- rnoise(runif, max=200)
-V <- Smooth(U, sigma=0.05, normalise=TRUE)
-V <- 100 + 7 * (V-100)
-plot(V)
-plot(rpoispp(V), add=TRUE, pch=16)
-
 X <- rLGCP("exp", 4, var=1.5, scale=0.03)
 plot(X)
 plot(Kest(X))

@@ -39,81 +39,7 @@ in a large forest. We shall assume the pattern is stationary.
 7.  Draw tentative conclusions from these plots about interpoint
     interaction in the data.
 
-
 ### Exercise 2
-
-1.  Generate Fry Plots for the Swedish Pines data using the two commands
-    ```{r}
-    fryplot(swedishpines)
-    fryplot(swedishpines, width=50)
-    ```
-
-2.  What can you interpret from these plots?
-
-
-### Exercise 3
-
-The `japanesepines` dataset is believed to exhibit
-spatial inhomogeneity. The question is whether, after allowing for
-inhomogeneity, there is still evidence of interpoint interaction. We
-will use the inhomogeneous $K$-function.
-
-1.  Compute the inhomogeneous $K$ function using the default
-    estimate of intensity (a leave-one-out kernel smoother) with
-    heavy smoothing:
-    ```{r}
-    KiS <- Kinhom(japanesepines, sigma=0.1)
-    plot(KiS)
-    ```
-	
-2.  Fit a parametric trend to the data, and use this to compute the
-    inhomogeneous $K$ function:
-    ```{r}
-    fit <- ppm(japanesepines ~ polynom(x,y,2))
-    lambda <- predict(fit, type="trend")
-    KiP <- Kinhom(japanesepines, lambda)
-    plot(KiP)
-    ```
-	
-3.  Plot corresponding estimates of the inhomogeneous $L$ function,
-    using either `Linhom` or
-    ```{r}
-    plot(KiS, sqrt(./pi) ~ r)
-    ```
-    and similarly for `KiP`.
-
-4.  Draw tentative conclusions about interpoint interaction.
-
-
-### Exercise 4
-
-To understand the difficulties with the $K$-function when the point
-pattern is not spatially homogeneous, try the following experiment.
-
-1.  Generate a simulated realisation of an inhomogeneous Poisson
-    process, e.g.
-    ```{r}
-    X <- rpoispp(function(x,y){ 200 * exp(-3 * x) })
-    ```
-	
-2.  Plot the $K$-function or $L$-function. It will most likely appear to show
-    evidence of clustering.
-
-
-### Exercise 5
-
-The cell process (`rcell`) has the same theoretical $K$-function as
-the uniform Poisson process.
-
-1.  Read the help file
-
-2.  Generate a simulated realisation of the cell process 
-    with a 10x10 grid of cells and plot it.
-    
-3.  Plot the $K$ or $L$-function for this pattern, and
-    determine whether it is distinguishable from a Poisson process.
-
-### Exercise 6
 
 For the `swedishpines` data:
 
@@ -135,23 +61,3 @@ For the `swedishpines` data:
     simulations of CSR using `ginterval=c(0,0.5)`. What
     is the significance level of the associated test?
 
-### Exercise 7
-
-To understand the difficulties with the $K$-function when the point
-pattern is not spatially homogeneous, try the following experiment
-(like in the previous lab session).
-
-1.  Generate a simulated realisation of an inhomogeneous Poisson
-    process, e.g.
-    ```{r}
-    X <- rpoispp(function(x,y){ 200 * exp(-3 * x) })
-    ```
-
-2.  Compute simulation envelopes (of your favorite type) of the $K$-
-    or $L$-function under CSR. They may well indicate significant
-    departure from CSR.
-
-3.  Fit a Poisson point process model to the `japanesepines`
-    data with log-quadratic trend (formula `~polynom(x,y,2)`). Plot the
-    $L$-function of the data along with simultaneous envelopes from 99
-    simulations **of the fitted model**.
