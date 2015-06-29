@@ -8,8 +8,7 @@ title: 'Lab 4: Cluster, Cox and Gibbs models'
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-This session is concerned with summary statistics for interpoint
-spacing and distances.  
+This session is concerned with fitting non-Poisson point process models.  
 The lecturer's R script is [available here](https://raw.githubusercontent.com/spatstat/useR2015/master/Scripts/script4.R) (right click and save).
 
 ```{r include=FALSE}
