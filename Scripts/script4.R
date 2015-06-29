@@ -25,6 +25,7 @@ Y <- rThomas(50, 0.03, 10)
 plot(Y)
 kppm(Y ~ 1, "Thomas")
 
+library(RandomFields)
 X <- rLGCP("exp", 4, var=1.5, scale=0.03)
 plot(X)
 plot(Kest(X))
