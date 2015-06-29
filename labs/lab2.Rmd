@@ -9,8 +9,7 @@ knitr::opts_chunk$set(eval = FALSE)
 ```
 
 This session is concerned with summary statistics for interpoint
-correlation (i.e. dependence between points).  
-This session is concerned with evelopes of summary statistics and Monte Carlo tests.  
+correlation (i.e. dependence between points) and simulation envelopes.  
 The lecturer's R script is [available here](https://raw.githubusercontent.com/spatstat/useR2015/master/Scripts/script2.R) (right click and save).
 
 ```{r include=FALSE}

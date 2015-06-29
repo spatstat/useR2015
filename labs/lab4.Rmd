@@ -8,8 +8,7 @@ title: 'Lab 4: Cluster, Cox and Gibbs models'
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-This session is concerned with summary statistics for interpoint
-spacing and distances.  
+This session is concerned with fitting non-Poisson point process models.  
 The lecturer's R script is [available here](https://raw.githubusercontent.com/spatstat/useR2015/master/Scripts/script4.R) (right click and save).
 
 ```{r include=FALSE}
@@ -96,9 +95,9 @@ profile pseudolikelihood.
 
 2.  Generate a sequence of values equally spaced across this range,
     for example, if your range of plausible values was
-    $[0.05, 0.3]$, then type
+    $[3, 15]$, then type
     ```{r}
-    rvals <- seq(0.05, 0.3, by=0.01)
+    rvals <- seq(3, 15, by=0.5)
     ```
 
 3.  Construct a data frame, with one column named `r`

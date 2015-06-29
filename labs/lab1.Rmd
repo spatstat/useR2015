@@ -63,19 +63,6 @@ The Ponderosa data, continued:
 
 ### Exercise 3
 
-The following vectors record the locations of 10 scintillation events
-observed under a microscope. Coordinates are given in microns, and
-the study region was $30 \times 30$ microns, with the origin at the
-bottom left corner.
-```r
-x <- c(13, 15, 27, 17, 8, 8, 1, 14, 19, 23)
-y <- c(3, 15, 7, 11, 10, 17, 29, 22, 19, 29)
-```
-Create a point pattern `X` from the data,
-and plot the point pattern (use `owin` or `square` to define the study region).
-
-### Exercise 4
-
 The dataset `japanesepines` contains the locations of
 Japanese Black Pine trees in a study region.
 
@@ -101,7 +88,7 @@ Japanese Black Pine trees in a study region.
     numerals larger and `col` to display them in another
     colour.
 
-### Exercise 5
+### Exercise 4
 
 Japanese Pines, continued:
 
